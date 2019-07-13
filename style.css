@@ -1,0 +1,36 @@
+/* Archivo: style.css */ 
+
+form.kfp-stock {
+    max-width: 600px;
+}
+
+form.kfp-stock label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form.kfp-stock .form-input {
+    padding: 1em;
+}
+
+form.kfp-stock .form-input input[type='text'],
+form.kfp-stock .form-input select,
+form.kfp-stock textarea {
+    display: block;
+    width: 100%;
+}
+
+p.exito {
+    font-size: 1.5em;
+    padding: 1em;
+    border: 2px solid green;
+    background: lightgreen;
+}
+
+p.error {
+    font-size: 1.5em;
+    padding: 1em;
+    border: 2px solid red;
+    background: #ff8787;
+}
