@@ -11,4 +11,4 @@ que forzar la recarga de la página desde el navegador.
 Falta poner alguna salvaguarda para evitar ventas fuera de stock. Le daré una pensada
 pero es bienvenida cualquier sugerencia.
 
-Para haberlo terminado desde la playa no esta mál :p
+Para haberlo terminado desde la playa no esta mál :smile:
