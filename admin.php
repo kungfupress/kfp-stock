@@ -28,6 +28,8 @@ function Kfp_Stock_admin()
     echo Kfp_Stock_Admin_Form_comprar();
     echo Kfp_Stock_Admin_Form_vender();
     echo '</div>';
+    // Agrega el script
+    wp_enqueue_script('kfp-stock-script', plugins_url('script.js', __FILE__));
 }
 
 /**
@@ -82,13 +84,14 @@ function Kfp_Stock_Admin_Form_comprar()
     );    
     ob_start();
     ?>
-    <h2>Adquirir productos</h2>
-    <form action="<?php get_the_permalink(); ?>" method="post" id="form-comprar">
+    <h2>Comprar productos</h2>
+    <form action="<?php get_the_permalink(); ?>" method="post" 
+        id="kfp-stock-form-comprar">
         <input type="hidden" name="accion" value="comprar">
         <p>
             <label for="producto">Producto</label>
-            <select name="id_producto" id="id_producto" required>
-            <option value="">Selecciona el producto</option>
+            <select name="id_producto" id="kfp-stock-compra-producto" required>
+                <option value="">Selecciona el producto</option>
                 <?php
                 foreach ($productos as $producto) {
                     echo("<option value='$producto->id'>$producto->nombre</option>)");
@@ -98,7 +101,8 @@ function Kfp_Stock_Admin_Form_comprar()
         </p>
         <p>
             <label for='cantidad'>Cantidad</label>
-            <input type="number" name="cantidad" id="cantidad" required>
+            <input type="number" name="cantidad" id="kfp-stock-compra-cantidad" 
+                required>
             </p>
         <p class="submit">
             <input type="submit" class="button button-primary" value="Comprar">
@@ -139,27 +143,30 @@ function Kfp_Stock_Admin_Form_vender()
     }
     // Recupera los productos para el select del formulario
     $productos = $wpdb->get_results(
-        "SELECT * from $tabla_producto ORDER BY nombre"
+        "SELECT * from $tabla_producto WHERE cantidad > 0 ORDER BY nombre"
     );    
     ob_start();
     ?>
     <h2>Vender productos</h2>
-    <form action="<?php get_the_permalink(); ?>" method="post" id="form_vender">
+    <form action="<?php get_the_permalink(); ?>" method="post" 
+        id="kfp-stock-form-vender">
         <input type="hidden" name="accion" value="vender">
         <p>
             <label for="producto">Producto</label>
-            <select name="id_producto" id="id_producto" required>
-            <option value="">Selecciona el producto</option>
+            <select name="id_producto" id="kfp-stock-venta-producto" required>
+                <option value="">Selecciona el producto</option>
                 <?php
                 foreach ($productos as $producto) {
-                    echo("<option value='$producto->id'>$producto->nombre</option>)");
+                    echo("<option data-cantidad='$producto->cantidad' 
+                        value='$producto->id'>$producto->nombre</option>)");
                 }
                 ?>
             </select>
         </p>
         <p>
             <label for='cantidad'>Cantidad</label>
-            <input type="number" name="cantidad" id="cantidad" required>
+            <input type="number" name="cantidad" id="kfp-stock-venta-cantidad" 
+                required>
             </p>
         <p class="submit">
             <input type="submit" class="button button-primary" value="Vender">
