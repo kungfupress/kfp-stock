@@ -5,10 +5,12 @@ De momento sólo se pueden comprar y vender productos desde el panel de administ
 pero ya suma y resta las cantidades de la base de datos, mostrando los resultados
 en una tabla muy básica.
 
-Falta hacer el refresco de la tabla cuando se envía el formulario, de momento hay 
-que forzar la recarga de la página desde el navegador.
+No muestra un artículo si no hay stock.
 
-Falta poner alguna salvaguarda para evitar ventas fuera de stock. Le daré una pensada
-pero es bienvenida cualquier sugerencia.
+Impone un máximo a la venta de artículos para evitar hacerlo por encima de stock
 
-Para haberlo terminado desde la playa no esta mál :smile:
+Realiza el envió de los formularios con admin_post.php para que el proceso esté 
+mejor organizado, facilitar el refresco de los datos de la tabla y mostrar avisos
+de éxito o error.
+
+Para haberlo empezado desde la playa no esta mál :smile:
