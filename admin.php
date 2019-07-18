@@ -3,6 +3,7 @@
 
 // Aquí comienza la parte administrativa del plugin
 add_action("admin_menu", "Kfp_Stock_menu");
+
 /**
  * Agrega el menú del plugin al panel de administración
  *
@@ -81,12 +82,11 @@ function Kfp_Stock_Admin_Form_comprar()
     // Recupera los productos para el select del formulario
     $productos = $wpdb->get_results(
         "SELECT * from $tabla_producto ORDER BY nombre"
-    );    
+    ); 
     ob_start();
     ?>
     <h2>Comprar productos</h2>
-    <form action="<?php get_the_permalink(); ?>" method="post" 
-        id="kfp-stock-form-comprar">
+    <form action="" method="post" id="kfp-stock-form-comprar">
         <input type="hidden" name="accion" value="comprar">
         <p>
             <label for="producto">Producto</label>
@@ -141,15 +141,14 @@ function Kfp_Stock_Admin_Form_vender()
             array( 'id' => $id_producto ) 
         );
     }
-    // Recupera los productos para el select del formulario
+    // Recupera los productos para el select del formulario si tienen stock
     $productos = $wpdb->get_results(
         "SELECT * from $tabla_producto WHERE cantidad > 0 ORDER BY nombre"
     );    
     ob_start();
     ?>
     <h2>Vender productos</h2>
-    <form action="<?php get_the_permalink(); ?>" method="post" 
-        id="kfp-stock-form-vender">
+    <form action="" method="post" id="kfp-stock-form-vender">
         <input type="hidden" name="accion" value="vender">
         <p>
             <label for="producto">Producto</label>
