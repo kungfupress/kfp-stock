@@ -5,7 +5,7 @@
  * @wordpress-plugin
  * Plugin Name: KFP Stock
  * Author: KungFuPress
- * Version: 1.0
+ * Version: 1.1
  * Description: Prueba de concepto para implementar un control de stock
  * Author URI: https://kungfupress.com
  */
