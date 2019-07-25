@@ -15,14 +15,12 @@ if (! defined('ABSPATH')) {
     exit();
 }
 
-
-
 $ruta_plugin = plugin_dir_path(__FILE__);
 
-require_once $ruta_plugin . 'crear_tablas.php';
-require_once $ruta_plugin . 'crear_datos_ejemplo.php';
+require_once $ruta_plugin . 'include/crear_tablas.php';
+require_once $ruta_plugin . 'include/crear_datos_ejemplo.php';
 if (is_admin()) {
-    include_once $ruta_plugin . 'admin.php';
+    include_once $ruta_plugin . 'include/admin.php';
 }
 
 register_activation_hook(__FILE__, 'Kfp_Stock_Crear_tablas');

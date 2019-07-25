@@ -34,7 +34,7 @@ function Kfp_Stock_admin()
     echo Kfp_Stock_Form_comprar();
     echo Kfp_Stock_Form_vender();
     echo '</div>';
-    wp_enqueue_script('kfp-stock-script', plugins_url('script.js', __FILE__));
+    wp_enqueue_script('kfp-stock-script', plugins_url('js/script.js', __FILE__));
 }
 
 /**
