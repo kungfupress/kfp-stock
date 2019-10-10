@@ -13,7 +13,7 @@
 //  Salir si se intenta acceder directamente
 if (! defined('ABSPATH')) {
     exit();
-}
+}   
 
 $ruta_plugin = plugin_dir_path(__FILE__);
 
